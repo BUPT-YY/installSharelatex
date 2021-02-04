@@ -21,19 +21,19 @@ EOF
 #安装docker和docker-compose
 sudo apt-get update
 sudo apt-get install -y docker.io net-tools openssh-server
-#sudo wget https://bootstrap.pypa.io/get-pip.py
+sudo wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 sudo pip3 install docker-compose
 
 #aliyun 容器镜像加速
-#sudo mkdir -p /etc/docker
-#sudo tee /etc/docker/daemon.json <<-'EOF'
-#{
-#  "registry-mirrors": ["https://d9nabugg.mirror.aliyuncs.com"]
-#}
-#EOF
-#sudo systemctl daemon-reload
-#sudo systemctl restart docker
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://d9nabugg.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 
 #复制docker-compose.yml, sharelatex镜像改为yousiki/sharelatex:latest
 sudo mkdir -p /home/test/ && cd /home/test/
