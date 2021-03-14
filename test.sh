@@ -6,3 +6,5 @@ deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe mu
 EOF
 
 apt-get update
+
+apt-get install -y ibus-clutter ibus-libpinyin git
